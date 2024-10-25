@@ -37,14 +37,5 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/delete/{id}")
-    public String deleteEmployee(@PathVariable(value = "id") Long id) {
-        if (employeeRepository.findById(id).isPresent()) {
-            Employee employee = employeeRepository.findById(id).get();
-            employeeRepository.delete(employee);
-        }
-        return "redirect:/";
-    }
-
 }
 
