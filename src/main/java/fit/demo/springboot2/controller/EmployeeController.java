@@ -20,7 +20,7 @@ public class EmployeeController {
     public String getAllEmployee(Model model) {
         List<Employee> employees = employeeRepository.findAll();
         model.addAttribute("employees", employees);
-        return "home";
+        return "employeeList";
 
     }
 
@@ -34,6 +34,15 @@ public class EmployeeController {
     @RequestMapping(value = "/insert")
     public String insertEmployee(Employee employee) {
         employeeRepository.save(employee);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/delete/{id}")
+    public String deleteEmployee(@PathVariable(value = "id") Long id) {
+        if (employeeRepository.findById(id).isPresent()) {
+            Employee employee = employeeRepository.findById(id).get();
+            employeeRepository.delete(employee);
+        }
         return "redirect:/";
     }
 

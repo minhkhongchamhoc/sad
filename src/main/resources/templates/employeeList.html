@@ -14,6 +14,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
             <td>
                 <a th:href="'/detail/' + ${employee.id}" th:text="${employee.name}"/>
             </td>
+            <td><a th:href="'/delete/' + ${employee.id}"> DELETE </a> </a>
             </td>
         </tr>
         </tbody>
