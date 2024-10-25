@@ -20,7 +20,7 @@ public class EmployeeController {
     public String getAllEmployee(Model model) {
         List<Employee> employees = employeeRepository.findAll();
         model.addAttribute("employees", employees);
-        return "employeeList";
+        return "home";
 
     }
 
